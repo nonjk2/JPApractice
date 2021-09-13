@@ -48,7 +48,7 @@ public class JpaMain {
             tx.commit();
         }*/
 
-        try {
+        /*try {
             List<Member> result = em.createQuery("select m from Member as m",Member.class)
                     .setFirstResult(0)
                     .setMaxResults(5)
@@ -56,6 +56,20 @@ public class JpaMain {
             for (Member member : result ){
                 System.out.println("member.name = "+member.getName());
             }
+
+            tx.commit();
+        }*/
+
+        try {
+            Member member = new Member();
+            member.setId(100L);
+            member.setName("HelloJPA");
+
+            System.out.println("=== BEFORE ===");
+            em.persist(member);
+            System.out.println("=== AFTER ===");
+
+
 
             tx.commit();
         } catch (Exception e) {
