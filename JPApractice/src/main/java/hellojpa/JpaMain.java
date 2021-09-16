@@ -1,7 +1,7 @@
 package hellojpa;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -10,6 +10,7 @@ public class JpaMain {
         EntityManager em = emf.createEntityManager();
 
         EntityTransaction tx = em.getTransaction();
+
         tx.begin();
         /*try {
             //====== 맴버 insert 할때! ========//
@@ -60,17 +61,39 @@ public class JpaMain {
             tx.commit();
         }*/
 
-        try {
+        /*try {
             Member member = new Member();
-            member.setId(100L);
+            member.setId(101L);
             member.setName("HelloJPA");
 
             System.out.println("=== BEFORE ===");
             em.persist(member);
             System.out.println("=== AFTER ===");
+            Member findMember1 = em.find(Member.class, 101L);
+            Member findMember2 = em.find(Member.class, 101L);
+
+            System.out.println("result = " + (findMember2==findMember1)); // 1차캐시로 꺼내오고 ==비교연산자 가능
 
 
 
+            tx.commit();
+        }*/
+        /*try {
+
+            Member member1 = new Member(170L, "A");
+            Member member2 = new Member(180L, "B");
+
+            em.persist(member1);
+            em.persist(member2);
+
+            System.out.println("===================================");
+
+
+            tx.commit();
+        }*/
+        try {
+            Member member = em.find(Member.class, 150L);
+            member.setName("Z");
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
