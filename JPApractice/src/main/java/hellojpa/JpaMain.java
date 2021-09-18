@@ -91,9 +91,22 @@ public class JpaMain {
 
             tx.commit();
         }*/
-        try {
+        /*try {
+
+            //영속
             Member member = em.find(Member.class, 150L);
             member.setName("Z");
+            tx.commit();
+        }*/
+        try {
+
+            //영속
+            Member member = em.find(Member.class, 150L);
+            member.setName("aaa");
+            //준영속
+            em.detach(member);
+            //준영속 클리어
+            /*em.clear();*/
             tx.commit();
         } catch (Exception e) {
             tx.rollback();

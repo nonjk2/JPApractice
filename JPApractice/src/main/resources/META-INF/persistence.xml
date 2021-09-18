@@ -19,6 +19,8 @@
             <property name="hibernate.use_sql_comments" value="true"/>
             <property name="hibernate.jdbc.batch_size" value="10"/> <!--size만큼 모아서 쿼리날림-->
             <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+            <!--운영장비에는 데이터베이스 스키마 사용하면 안됌-->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
     </persistence-unit>
 </persistence>
