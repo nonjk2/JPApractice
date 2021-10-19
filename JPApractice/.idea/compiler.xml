@@ -6,9 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ex1hellojpa" />
-        <module name="JPApractice" />
+        <module name="ex1-hello-jpa" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ex1-hello-jpa" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
